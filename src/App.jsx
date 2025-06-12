@@ -1,29 +1,69 @@
-import { BsThreeDots } from "react-icons/bs";
-import { FaPlus } from "react-icons/fa6";
-import { todos } from "./data/dummy";
+import TodoList from "./components/TodoList";
+import AddTodoBtn from "./components/ui/Button";
+import CreateTodo from "./components/form/CreateTodo";
+import { useState } from "react";
 
 export default function App() {
   // function mapToTODO()
+
+  const [todos, setTodos] = useState([
+    {
+      id: 1,
+      title: "Do homework",
+      description: "I have to complete my school homework before Monday.",
+    },
+    {
+      id: 2,
+      title: "Buy groceries",
+      description: "Need to buy milk, bread, and eggs from the supermarket.",
+    },
+    {
+      id: 3,
+      title: "Workout",
+      description: "Go for a 30-minute run and do strength training.",
+    },
+    {
+      id: 4,
+      title: "Read a book",
+      description: "Read at least 50 pages of 'Atomic Habits'.",
+    },
+    {
+      id: 5,
+      title: "Call parents",
+      description: "Catch up with mom and dad on a video call.",
+    },
+    {
+      id: 6,
+      title: "Finish project",
+      description: "Complete the frontend for the Hackathon Collaboration Hub.",
+    },
+    {
+      id: 7,
+      title: "Plan weekend trip",
+      description: "Research places and make a plan for the weekend getaway.",
+    },
+    {
+      id: 8,
+      title: "Clean room",
+      description: "Organize the desk and vacuum the floor.",
+    },
+    {
+      id: 9,
+      title: "Learn TypeScript",
+      description: "Go through TypeScript docs and convert a JS project to TS.",
+    },
+    {
+      id: 10,
+      title: "Write blog post",
+      description: "Draft a blog about my recent coding contest experience.",
+    },
+  ]);
+
   return (
     <main className="w-screen h-screen dark:bg-black dark:text-white">
-      {/* TODOS */}
-      <section className="w-fit m-auto flex flex-col gap-2">
-        {todos.map((todo) => (
-          <div
-            key={todo.id}
-            className="dark:bg-[#131416] w-100 p-2 relative rounded-lg "
-          >
-            <BsThreeDots className="absolute top-0 right-0 m-2" />
-            <h3 className="text-3xl">{todo.title}</h3>
-            <p className="text-sm opacity-40">{todo.description}</p>
-          </div>
-        ))}
-      </section>
-
-      {/* Add Todo btn */}
-      <button className="fixed bottom-0 right-0 m-10 cursor-pointer size-25 dark:bg-[#131416] flex justify-center items-center rounded-full">
-        <FaPlus size={36} />
-      </button>
+      <TodoList todos={todos} />
+      <CreateTodo setTodos={setTodos} />
+      <AddTodoBtn />
     </main>
   );
 }
