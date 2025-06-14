@@ -2,7 +2,7 @@ import { BsThreeDots } from "react-icons/bs";
 
 export default function TodoList({ todos }) {
   return (
-    <section className="w-fit m-auto flex flex-col gap-2">
+    <section className="w-fit h-[90vh] overflow-y-auto m-auto flex flex-col gap-2">
       {todos.map((todo) => (
         <div
           key={todo.id}

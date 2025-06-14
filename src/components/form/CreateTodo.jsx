@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function CreateTodo({ setTodos }) {
+export default function CreateTodo({ setTodos, closeForm }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
@@ -39,10 +39,17 @@ export default function CreateTodo({ setTodos }) {
           placeholder="Enter TODO Description"
         ></textarea>
         <div className="flex justify-end gap-4">
-          <button className="bg-red-500 p-2 rounded-lg" type="button">
+          <button
+            onClick={closeForm}
+            className="bg-red-500 p-2 rounded-lg cursor-pointer"
+            type="button"
+          >
             Close
           </button>
-          <button className="bg-green-500 p-2 rounded-lg" type="submit">
+          <button
+            className="bg-green-500 p-2 rounded-lg cursor-pointer"
+            type="submit"
+          >
             Create
           </button>
         </div>

@@ -1,9 +1,6 @@
 import { FaPlus } from "react-icons/fa6";
 
-export default function AddTodoBtn() {
-  function handleBtnClick() {
-    alert();
-  }
+export default function AddTodoBtn({ handleBtnClick }) {
   return (
     <button
       onClick={handleBtnClick}
